@@ -1,11 +1,30 @@
 import React, { Fragment, useState } from 'react'
 import { Link } from 'react-router-dom'
+import Button from './Button';
+import './Navbar.css'
 
 function Navbar() {
     const [click, setClick] = useState(false); //state for menu responsiveness
+    const [button, setButton] = useState(true); //state for button styling
 
     const handleClick = () => setClick(!click);
     const closeResMenu = () => setClick(false);
+
+    const showButton = () => {
+        if (window.innerWidth <= 960) {
+            setButton(false)
+        } else {
+            setButton(true)
+        }
+    }
+
+    useEffect(() => {
+        showButton();
+    }, []);
+    
+
+    window.addEventListener('resize', showButton)
+
   return (
     <Fragment>
         <nav className='navbar'>
@@ -22,11 +41,11 @@ function Navbar() {
                             Home
                         </Link>
                     </li>
-                    <li className='nav-item'>
+                    {/* <li className='nav-item'>
                         <Link to="/soon" className='nav-links' onClick={closeResMenu}>
                             Coming Soon
                         </Link>
-                    </li>
+                    </li> */}
                     <li className='nav-item'>
                         <Link to="/about" className='nav-links' onClick={closeResMenu}>
                             About Us
@@ -38,11 +57,13 @@ function Navbar() {
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link to="/sign-in" className='nav-links-res' onClick={closeResMenu}>
+                        <Link to="/log-in" className='nav-links-res' onClick={closeResMenu}>
                             Log In
                         </Link>
                     </li>
                 </ul>
+                {button && <Button buttonStyle='btn--outline'>Sign Up</Button>}
+                {button && <Button buttonStyle='btn--outline'>Log in</Button>}
             </div>
         </nav>
     </Fragment>
