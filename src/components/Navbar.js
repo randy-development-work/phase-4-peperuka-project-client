@@ -1,6 +1,6 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import Button from './Button';
+import { Button } from './Button';
 import './Navbar.css'
 
 function Navbar() {
@@ -29,7 +29,7 @@ function Navbar() {
     <Fragment>
         <nav className='navbar'>
             <div className='navbar-container'>
-                <Link to="/" className="navbar-logo">
+                <Link to="/" className="navbar-logo" onClick={closeResMenu}>
                     PEPERUKA <i className="fa-solid fa-truck-ramp-box fa-bounce" />
                 </Link>
                 <div className="menu-icon" onClick={handleClick}>
