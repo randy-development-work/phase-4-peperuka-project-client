@@ -23,7 +23,7 @@ function Welcome() {
           buttonSize='btn--large'
           onClick={console.log('hey')}
         >
-          WATCH TRAILER <i className='far fa-play-circle' />
+          THIS IS US <i className='far fa-play-circle' />
         </Button>
       </div>
     </div>

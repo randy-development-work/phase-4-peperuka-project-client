@@ -25,7 +25,7 @@ function Categories() {
                 <div className='cards__container'>
                     <div className='cards__wrapper'>
                         <ul className='cards__items'>
-                            
+                            {onecategory}
                         </ul>
                     </div>
                 </div>
