@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './App.css';
 import { Button } from './Button';
 import './Welcome.css';
@@ -15,6 +16,10 @@ function Welcome() {
       setIsHover(false);
    };
 
+   let navigator = useNavigate();
+
+   const redirect = () => {navigator("/about")}
+
   return (
     <div className='welcome'>
       <video src='https://player.vimeo.com/external/376190181.hd.mp4?s=a876bdfcae5cfde541d89b32237f28be9ff725cf&profile_id=174&oauth2_token_id=57447761' autoPlay loop muted />
@@ -29,6 +34,7 @@ function Welcome() {
           GET STARTED
         </Button> */}
         <button
+        
           className='btns'
           buttonStyle='btn--primary'
           buttonSize='btn--large'
@@ -38,12 +44,19 @@ function Welcome() {
             color: isHover ? "#242424" : "#FFF",
             padding: "8px 20px",
             border: "1px solid var(--primary)",
-            transition: "all 0.35s ease-out"
+            transition: "all 0.35s ease-out",
+            fontFamily: "'Eczar', serif",
+            padding: "12px 26px",
+            fontSize: "20px",
+            borderRadius: "5px"
           }}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
+          onClick={redirect}
         >
+          {/* <Link to="/about"> */}
           THIS IS US <i className='far fa-play-circle' />
+          {/* </Link> */}
         </button>
       </div>
     </div>

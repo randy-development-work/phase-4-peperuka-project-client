@@ -8,6 +8,7 @@ import { Card, Icon, Image, Button } from 'semantic-ui-react';
 function EachCategory({category}) {
   // console.log(props);
     const {id, image, name} = category
+    console.log(category)
     // const imgStyle={
     //   height: 240,
     //   backgroundSize: "cover",
@@ -19,7 +20,7 @@ function EachCategory({category}) {
     <Fragment className="frag_item">
        <Card className='card-style'>
             {/* <Image src={image} wrapped ui={true} /> */}
-            <Link to={"/"} className="rounded-top" style={{
+            <Link to={`categories/${id}`} className="rounded-top" style={{
                 height: 240,
                 backgroundSize: "cover",
                 backgroundPosition: "center",

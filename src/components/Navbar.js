@@ -21,16 +21,62 @@ function Navbar() {
     useEffect(() => {
         showButton();
     }, []);
+
+    const [isHover, setIsHover] = useState(false);
+
+   const handleMouseEnter = () => {
+      setIsHover(true);
+   };
+
+   const handleMouseLeave = () => {
+      setIsHover(false);
+   };
+
+   const [isBHover, setIsBHover] = useState(false);
+
+   const handleEnter = () => {
+      setIsBHover(true);
+   };
+
+   const handleLeave = () => {
+      setIsBHover(false);
+   };
+
     
 
     window.addEventListener('resize', showButton)
 
     const btnStyle = {
-        backgroundColor: "transparent",
-        color: "#FFF",
+        backgroundColor: isHover ? "#FFF" : "transparent",
+        color: isHover ? "#242424" : "#FFF",
         padding: "8px 20px",
         border: "1px solid var(--primary)",
-        transition: "all 0.35s ease-out"
+        transition: "all 0.35s ease-out",
+        cursor: "pointer",
+        fontFamily: "'Eczar', serif",
+        padding: "8px 20px",
+        borderRadius: "2px",
+        // outline: "none",
+        // border: "none",
+        padding: "8px 20px",
+        fontSize: "20px",
+        borderRadius: "5px"
+    }
+    const btn2Style = {
+        backgroundColor: isBHover ? "#FFF" : "transparent",
+        color: isBHover ? "#242424" : "#FFF",
+        padding: "8px 20px",
+        border: "1px solid var(--primary)",
+        transition: "all 0.35s ease-out",
+        cursor: "pointer",
+        fontFamily: "'Eczar', serif",
+        padding: "8px 20px",
+        borderRadius: "2px",
+        // outline: "none",
+        // border: "none",
+        padding: "8px 20px",
+        fontSize: "20px",
+        borderRadius: "5px"
     }
 
   return (
@@ -60,21 +106,22 @@ function Navbar() {
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link to="/sign-up" className='nav-links-res' onClick={closeResMenu}>
+                        <Link to="/signup" className='nav-links-res' onClick={closeResMenu}>
                             Sign Up
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link to="/log-in" className='nav-links-res' onClick={closeResMenu}>
+                        <Link to="/login" className='nav-links-res' onClick={closeResMenu}>
                             Log In
                         </Link>
                     </li>
                 </ul>
-                <Link to ="/sign-up">
-                    {btn && <button style={btnStyle}>Sign Up</button>}
+                <Link to ="/signup" style={{marginRight:"8px"}}>
+                    {btn && <button style={btnStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Sign Up</button>}
                 </Link>
-                <Link to ="/log-in">
-                    {btn && <button style={btnStyle}>Log in</button>}
+                
+                <Link to ="/login">
+                    {btn && <button style={btn2Style} onMouseEnter={handleEnter} onMouseLeave={handleLeave}>Log in</button>}
                 </Link>
             </div>
         </nav>
