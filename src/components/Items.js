@@ -3,8 +3,11 @@ import { useParams } from "react-router-dom";
 import './Items.css'
 import OneItem from "./OneItem";
 
-export default function Items() {
+function Items() {
     const [items, setItems] = useState([]);
+    const [searchResults, setSearchResults] = useState("");
+    // state to hold search parameters for each event
+    const [searchParam] = useState(["vendor", "name", "vendor_contact", "price", "location"]);
     let params = useParams();
     console.log(items);
     // console.log(params.categoryID);
@@ -16,7 +19,14 @@ export default function Items() {
         .then((itemData) => setItems(itemData))
     }, [params.categoryID])
 
-    let item = items.map((item) => {
+    function search(items){
+        return items.filter((item) => searchParam.some((parameter) => item[parameter].toString().toLowerCase().includes(searchResults))
+        )
+    }
+
+    let queryData = Object.values(items);
+    console.log("Query:", queryData);
+    let item = search(queryData).map((item) => {
         return (
             <OneItem key={item.id} item={item} />
         )
@@ -24,6 +34,11 @@ export default function Items() {
 
   return (
     <Fragment>
+        <div>
+            <form style={{padding:'20px  20px ',paddingLeft: '180px'}} className="d-flex " role="search">
+                    <input style={{width:'60rem'}}className="form-control me-2" type="text" placeholder="Search away..." value={searchResults}  onChange={(e) => setSearchResults(e.target.value)} aria-label="Search"/>
+            </form>
+        </div>
         <div className="ui three column grid container" style={{                
             display: 'flex',
             justifyContent: 'space-between', 
@@ -38,3 +53,5 @@ export default function Items() {
     </Fragment>
   )
 }
+
+export default Items;

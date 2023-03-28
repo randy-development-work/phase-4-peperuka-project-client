@@ -23,7 +23,7 @@ function Categories() {
     })
     return (
         <div className='cards'>
-            <h2>Pick a Category</h2>
+            <h2 style = {{fontFamily: "'Eczar', serif"}}>Pick a Category</h2>
         <div className="ui three column grid container" style={{
                             
             display: 'flex',

@@ -30,7 +30,7 @@ function EachCategory({category}) {
             
             ></Link>
             <Card.Content>
-            <Card.Header>{name}</Card.Header>            
+            <Card.Header style = {{fontFamily: "'Eczar', serif"}}>{name}</Card.Header>            
           
             </Card.Content>
             

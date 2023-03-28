@@ -24,7 +24,7 @@ function OneItem({item}) {
             
             ></div>
             <Card.Content>
-            <Card.Header>{name}</Card.Header>
+            <Card.Header style = {{fontFamily: "'Eczar', serif"}}>{name}</Card.Header>
             <Card.Meta>{location}</Card.Meta>
             <Card.Description>
                 <h4>Vendor:</h4>
