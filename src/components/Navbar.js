@@ -70,11 +70,8 @@ function Navbar() {
         transition: "all 0.35s ease-out",
         cursor: "pointer",
         fontFamily: "'Eczar', serif",
-        padding: "8px 20px",
-        borderRadius: "2px",
         // outline: "none",
         // border: "none",
-        padding: "8px 20px",
         fontSize: "20px",
         borderRadius: "5px"
     }
