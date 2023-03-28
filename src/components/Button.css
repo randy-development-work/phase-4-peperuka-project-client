@@ -34,7 +34,7 @@
     font-size: 20px;
 }
 
-.btn--medium:hover, .btn--large:hover {
+.btn--medium:hover, .App .welcome .welcome-btns .btns:hover, .btn--large:hover {
     background: #FFF;
     color: #242424;
     /* transition: 200ms; */

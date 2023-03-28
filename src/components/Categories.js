@@ -14,23 +14,28 @@ function Categories() {
 
 
     let onecategory = categories.map((category) => {
-        return (
-            <EachCategory key={category.id} category={category}/>
+        return (          
+                <EachCategory 
+                    key={category.id} 
+                    category={category}                    
+                />            
         )
     })
     return (
-        <Fragment>
-            <div className='cards'>
-                <h2>Pick a Category to Order From</h2>
-                <div className='cards__container'>
-                    <div className='cards__wrapper'>
-                        <ul className='cards__items'>
-                            {onecategory}
-                        </ul>
-                    </div>
-                </div>
+        <div className='cards'>
+            <h2>Pick a Category</h2>
+        <div className="ui three column grid container" style={{
+                            
+            display: 'flex',
+            justifyContent: 'space-between', 
+            alignItems: 'center' 
+            }}>
+            <div className="cat_item row">
+                {onecategory}
             </div>
-        </Fragment>
+            
+        </div>
+        </div>
     )
 }
 

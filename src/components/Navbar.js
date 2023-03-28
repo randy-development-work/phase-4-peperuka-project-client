@@ -5,16 +5,16 @@ import './Navbar.css'
 
 function Navbar() {
     const [click, setClick] = useState(false); //state for menu responsiveness
-    const [button, setButton] = useState(true); //state for button styling
+    const [btn, setBtn] = useState(true); //state for button styling
 
     const handleClick = () => setClick(!click);
     const closeResMenu = () => setClick(false);
 
     const showButton = () => {
         if (window.innerWidth <= 960) {
-            setButton(false)
+            setBtn(false)
         } else {
-            setButton(true)
+            setBtn(true)
         }
     }
 
@@ -24,6 +24,14 @@ function Navbar() {
     
 
     window.addEventListener('resize', showButton)
+
+    const btnStyle = {
+        backgroundColor: "transparent",
+        color: "#FFF",
+        padding: "8px 20px",
+        border: "1px solid var(--primary)",
+        transition: "all 0.35s ease-out"
+    }
 
   return (
     <Fragment>
@@ -62,8 +70,12 @@ function Navbar() {
                         </Link>
                     </li>
                 </ul>
-                {button && <Button buttonStyle='btn--outline'>Sign Up</Button>}
-                {button && <Button buttonStyle='btn--outline'>Log in</Button>}
+                <Link to ="/sign-up">
+                    {btn && <button style={btnStyle}>Sign Up</button>}
+                </Link>
+                <Link to ="/log-in">
+                    {btn && <button style={btnStyle}>Log in</button>}
+                </Link>
             </div>
         </nav>
     </Fragment>
