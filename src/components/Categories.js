@@ -1,17 +1,10 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import './Categories.css';
 import EachCategory from './EachCategory';
+import { useCategories } from '../library';
 
 function Categories() {
-    const [categories, setCategories] = useState([])
-
-    // fetching categories from the backend
-    useEffect(() => {
-        fetch("/categories")
-        .then((r) => r.json())
-        .then(setCategories)
-    }, [])
-    console.log(categories);
+    const categories = useCategories();
 
 
     let onecategory = categories.map((category) => {

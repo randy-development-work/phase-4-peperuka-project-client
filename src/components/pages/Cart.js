@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Fragment} from "react";
 import { Link } from 'react-router-dom'
+import { Button, Image, List } from 'semantic-ui-react'
 
 function Cart() {
     const [cartItems, setCartItems] = useState([]);
@@ -14,27 +15,18 @@ function Cart() {
         })   
 
     },[])
-    console.log(cartItems);
-    console.log(total);
 
-    const onDelete = (deleted) => {
-        const updatedState = cartItems.filter((item) => item.id !== deleted.id);
-        setCartItems(updatedState);
-
-        const newTotal = total -= deleted.price
-        
-        
-        setTotal(newTotal)
-    }
 
     // function to remove the cart item
     const removeFromCart = (item) => {
         fetch(`/carts/${item.id}`, {
             method: "DELETE",
         })
-        .then((r) => r.json())
-        .then(() => {
-            onDelete(item)
+        .then((resp) => resp.json())
+        .then((json) => {
+            console.log(json);
+            setCartItems(json.cartItems)
+            setTotal(json.total)
         })
     }
 
@@ -43,15 +35,26 @@ function Cart() {
             <h2>Cart</h2>
             {cartItems.length > 0 ? (
                 cartItems.map((cartitem) => (
-                    <div>
-                        <img src = {cartitem.image}/>
-                        <h2>{cartitem.name}</h2>
-                        <p>{cartitem.vendor}</p>
-                        <small>{cartitem.price}</small>
-
-                        <button onClick={() => removeFromCart(cartitem)}>Remove from Cart</button>
-
-                    </div>
+                    <List animated verticalAlign='middle'>
+                        <List.Item>
+                            <List.Content floated='right'>
+                                <Button onClick={() => removeFromCart(cartitem)}>Remove from Cart</Button>
+                            </List.Content>
+                            <Image avatar src={cartitem.image} />
+                            <List.Content>
+                                <List.Header>{cartitem.name}</List.Header>
+                                <List.Description>
+                                    Vendor:{' '}
+                                    <a>
+                                    <b>{cartitem.vendor}</b>
+                                    </a>{' '}
+                                </List.Description>
+                                <List.Description>
+                                    <b>{cartitem.price}</b>
+                                </List.Description>
+                            </List.Content>
+                        </List.Item> 
+                    </List>
                 ))
                 
             ) : (
@@ -62,6 +65,8 @@ function Cart() {
                     </button>
                 </Fragment>
             )}
+
+
             <h3>Total: {total}</h3>
         </Fragment>
     )

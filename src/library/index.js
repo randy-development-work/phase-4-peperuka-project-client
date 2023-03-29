@@ -1,0 +1,20 @@
+import { useState, useEffect } from "react";
+
+export const resources = {
+  CATEGORIES: "/categories",
+  ITEMS: "/items",
+  CARTS: "/carts",
+};
+
+export const useCategories = () => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    fetch(resources.CATEGORIES)
+      .then((resp) => resp.json())
+      .then((json) => setCategories(json))
+      .catch((error) => console.log(error))
+  }, []);
+
+  return categories;
+};
