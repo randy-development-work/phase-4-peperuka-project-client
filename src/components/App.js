@@ -30,11 +30,11 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="categories/:categoryID" element={<Items />}/>
+          <Route path="categories/:categoryID" element={<Items user={user} />}/>
           <Route path="/about" element={<About />} />
           <Route path="/signup" element={<SignUp setUser={setUser}/>} />
           <Route path="/login" element={<LogIn setUser={setUser}/>} />
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/cart" element={<Cart user={user}/>} />
           
         </Routes>
         <Footer />

@@ -2,8 +2,9 @@ import React, { useContext, useState } from 'react'
 // import { ShopContext } from '../context/shop-context';
 import { Card, Icon, Image, Button } from 'semantic-ui-react';
 
-function OneItem({item}) {
-    const {id, name, image, vendor, vendor_contact, category_id, price, location} = item;
+function OneItem({item, user}) {
+  const {u_id, username} = user;
+    const {id, name, image, vendor, vendor_contact, category_id, price, location, user_id} = item;
     // const [inCart, setInCart] = useState(false);
     // const { addToCart, cartItems } = useContext(ShopContext);
 
@@ -23,7 +24,8 @@ function OneItem({item}) {
           name,
           image,
           vendor,
-          price
+          price,
+          user_id: u_id
         }),
       }).then((r) => {
         if (r.ok) {

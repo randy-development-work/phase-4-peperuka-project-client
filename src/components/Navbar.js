@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 // import { Button } from "./Button";
 import "./Navbar.css";
 import { ShoppingCart } from "phosphor-react";
-import { HeartFilled } from '@ant-design/icons';
+import { HeartFilled } from "@ant-design/icons";
 
 function Navbar({ user, setUser }) {
   const [click, setClick] = useState(false); //state for menu responsiveness
@@ -54,6 +54,24 @@ function Navbar({ user, setUser }) {
       }
     });
   }
+
+  const [cartItems, setCartItems] = useState([]);
+  const [cartCount, setCartCount] = useState(0)
+
+  useEffect(() => {
+    fetch("/carts")
+    .then((r)=> r.json())
+    .then((data) => {
+        setCartItems(data.cartItems)
+        setCartCount(data.count)
+    })   
+
+},[])
+
+
+
+
+
 
   const btnStyle = {
     backgroundColor: isHover ? "#FFF" : "transparent",
@@ -132,9 +150,12 @@ function Navbar({ user, setUser }) {
               </li>
               <li className="nav-item">
                 <Link
-                  to="/cart"
+                  to="/login"
                   className="nav-links-res"
-                  onClick={closeResMenu}
+                  onClick={() => {
+                    closeResMenu();
+                    alert("You need to be Logged In!");
+                  }}
                 >
                   <ShoppingCart size={32} color="#fff" />
                 </Link>
@@ -164,7 +185,12 @@ function Navbar({ user, setUser }) {
               )}
             </Link>
 
-            <Link to="/cart">
+            <Link
+              to="/login"
+              onClick={() => {
+                alert("You need to be Logged In!");
+              }}
+            >
               <ShoppingCart size={32} color="#fff" />
             </Link>
           </div>
@@ -200,7 +226,7 @@ function Navbar({ user, setUser }) {
               </li>
 
               <li className="nav-item">
-                <h2 style={{color:"blue", borderRadius:"blue"}}>
+                <h2 style={{ color: "red", borderRadius: "5px" }}>
                   Hi, {user.username} <HeartFilled />
                 </h2>
               </li>
@@ -235,6 +261,7 @@ function Navbar({ user, setUser }) {
                   onMouseLeave={handleLeave}
                   onClick={() => {
                     handleLogOut();
+                    alert("You're Logged Out")
                   }}
                 >
                   Log Out
@@ -242,8 +269,9 @@ function Navbar({ user, setUser }) {
               )}
             </Link>
 
-            <Link to="/cart" style={{right:"1px"}}>
+            <Link to="/cart" style={{ right: "1px" }}>
               <ShoppingCart size={32} color="#fff" />
+              {cartCount}
             </Link>
           </div>
         </nav>

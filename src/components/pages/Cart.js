@@ -4,9 +4,19 @@ import { Image, List } from 'semantic-ui-react'
 import { Button, Space, Tooltip } from 'antd';
 import { HomeOutlined } from '@ant-design/icons';
 
-function Cart() {
+function Cart({user}) {
     const [cartItems, setCartItems] = useState([]);
     const [total, setTotal] = useState(0); 
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        fetch("/items")
+        .then((r)=> r.json())
+        .then((data) => {
+            setItems(data)
+        })   
+
+    },[])
 
     useEffect(() => {
         fetch("/carts")
@@ -20,8 +30,8 @@ function Cart() {
 
 
     // function to remove the cart item
-    const removeFromCart = (item) => {
-        fetch(`/carts/${item.id}`, {
+    const removeFromCart = (id) => {
+        fetch(`/carts/${id}`, {
             method: "DELETE",
         })
         .then((resp) => resp.json())
@@ -29,6 +39,7 @@ function Cart() {
             console.log(json);
             setCartItems(json.cartItems)
             setTotal(json.total)
+            setItems(json.user_id = null)
         })
     }
 
@@ -40,7 +51,7 @@ function Cart() {
                     <List animated verticalAlign='middle'>
                         <List.Item>
                             <List.Content floated='right'>
-                                <Button onClick={() => removeFromCart(cartitem)}>Remove from Cart</Button>
+                                <Button onClick={() => removeFromCart(cartitem.id)}>Remove from Cart</Button>
                             </List.Content>
                             <Image avatar src={cartitem.image} />
                             <List.Content>

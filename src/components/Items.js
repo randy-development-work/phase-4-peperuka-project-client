@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import './Items.css'
 import OneItem from "./OneItem";
 
-function Items() {
+function Items({user}) {
     const [items, setItems] = useState([]);
     const [searchResults, setSearchResults] = useState("");
     // state to hold search parameters for each event
@@ -28,7 +28,7 @@ function Items() {
     // console.log("Query:", queryData);
     let item = search(queryData).map((item) => {
         return (
-            <OneItem key={item.id} item={item} />
+            <OneItem key={item.id} item={item} user={user} />
         )
     })
 
