@@ -1,6 +1,8 @@
 import React, { useState, useEffect, Fragment} from "react";
 import { Link } from 'react-router-dom'
-import { Button, Image, List } from 'semantic-ui-react'
+import { Image, List } from 'semantic-ui-react'
+import { Button, Space, Tooltip } from 'antd';
+import { HomeOutlined } from '@ant-design/icons';
 
 function Cart() {
     const [cartItems, setCartItems] = useState([]);
@@ -58,11 +60,14 @@ function Cart() {
                 ))
                 
             ) : (
-                <Fragment>
+                <Fragment style={{alignItems: "center"}}>
                     <h2>Cart is Empty</h2>
-                    <button as={Link} to="/">
-                        Find an Item
-                    </button>
+                    <Link to="/">
+                    <Tooltip title="home">
+                        <Button icon={<HomeOutlined />}>Find an Item</Button>
+                        
+                    </Tooltip>
+                    </Link>
                 </Fragment>
             )}
 
