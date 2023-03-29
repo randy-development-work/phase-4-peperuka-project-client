@@ -1,16 +1,38 @@
 import React, { useContext, useState } from 'react'
-import { ShopContext } from '../context/shop-context';
+// import { ShopContext } from '../context/shop-context';
 import { Card, Icon, Image, Button } from 'semantic-ui-react';
 
 function OneItem({item}) {
     const {id, name, image, vendor, vendor_contact, category_id, price, location} = item;
-    const [inCart, setInCart] = useState(false);
-    const { addToCart, cartItems } = useContext(ShopContext);
+    // const [inCart, setInCart] = useState(false);
+    // const { addToCart, cartItems } = useContext(ShopContext);
 
     // styling for button when clicked      
-    const switchCart = () => setInCart(!inCart)
-    const background = inCart ? "rgb(181 172 171)" : "#020202";
-    const color = inCart ? "#000000" : "#fff";
+    // const switchCart = () => setInCart(!inCart)
+    const background = "#020202" //inCart ? "rgb(181 172 171)" : "#020202";
+    const color = "#fff" //inCart ? "#000000" : "#fff";
+
+    const [errors, setErrors] = useState([]);
+    const addToCart = () => {
+      fetch('/carts', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          image,
+          vendor,
+          price
+        }),
+      }).then((r) => {
+        if (r.ok) {
+          alert("Added to Cart")
+        } else {
+          r.json().then((err) => setErrors(err.errors))
+        }
+      })
+    }
 
   return (
     <Card className='card-style'>
@@ -49,11 +71,11 @@ function OneItem({item}) {
                   
                 }}
                 onClick={() => {
-                    switchCart();
-                    addToCart(id);
+                    // switchCart();
+                  addToCart();
                 }}
                 >
-                  <Icon name={inCart ? 'thumbs up' : 'add to cart'} />{inCart ? "In Cart" : "Add to Cart"}
+                  <Icon name='add to cart' /> Add to Cart
                   </Button>
                 {/* <Button secondary><Icon name='delete calendar' />Delete</Button> */}
             </a>
