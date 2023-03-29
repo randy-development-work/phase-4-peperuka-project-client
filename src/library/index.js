@@ -4,6 +4,7 @@ export const resources = {
   CATEGORIES: "/categories",
   ITEMS: "/items",
   CARTS: "/carts",
+  USERS: "/me"
 };
 
 export const useCategories = () => {

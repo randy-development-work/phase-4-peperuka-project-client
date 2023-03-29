@@ -1,4 +1,5 @@
 import logo from '../logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Navbar from './Navbar';
 import { Route, Routes, Outlet } from "react-router-dom";
@@ -12,22 +13,32 @@ import Cart from './pages/Cart'
 // import { ShopContextProvider } from '../context/shop-context';
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  // auto-login
+  useEffect(() => {
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
+
   return (
     <>
-      {/* <ShopContextProvider> */}
         <Navbar />
 
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="categories/:categoryID" element={<Items />}/>
           <Route path="/about" element={<About />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<LogIn />} />
+          <Route path="/signup" element={<SignUp setUser={setUser}/>} />
+          <Route path="/login" element={<LogIn setUser={setUser}/>} />
           <Route path="/cart" element={<Cart />} />
           
         </Routes>
         <Footer />
-      {/* </ShopContextProvider> */}
+      
     </>
   );
 }

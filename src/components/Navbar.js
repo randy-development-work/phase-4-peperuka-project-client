@@ -113,6 +113,11 @@ function Navbar() {
                             Log In
                         </Link>
                     </li>
+                    <li className='nav-item'>
+                    <Link to="/cart" className='nav-links-res'>
+                        <ShoppingCart size={32} color="#fff"/>
+                    </Link>
+                    </li>                    
                 </ul>
                 <Link to ="/signup" style={{marginRight:"8px"}}>
                     {btn && <button style={btnStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Sign Up</button>}
