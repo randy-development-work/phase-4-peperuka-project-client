@@ -9,7 +9,7 @@ function Items() {
     // state to hold search parameters for each event
     const [searchParam] = useState(["vendor", "name", "vendor_contact", "price", "location"]);
     let params = useParams();
-    console.log(items);
+    // console.log(items);
     // console.log(params.categoryID);
 
     // fetch item data within categories
@@ -25,7 +25,7 @@ function Items() {
     }
 
     let queryData = Object.values(items);
-    console.log("Query:", queryData);
+    // console.log("Query:", queryData);
     let item = search(queryData).map((item) => {
         return (
             <OneItem key={item.id} item={item} />

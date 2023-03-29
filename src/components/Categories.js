@@ -11,6 +11,7 @@ function Categories() {
         .then((r) => r.json())
         .then(setCategories)
     }, [])
+    console.log(categories);
 
 
     let onecategory = categories.map((category) => {

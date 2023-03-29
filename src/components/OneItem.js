@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
-
+import React, { useContext, useState } from 'react'
+import { ShopContext } from '../context/shop-context';
 import { Card, Icon, Image, Button } from 'semantic-ui-react';
 
 function OneItem({item}) {
     const {id, name, image, vendor, vendor_contact, category_id, price, location} = item;
     const [inCart, setInCart] = useState(false);
+    const { addToCart, cartItems } = useContext(ShopContext);
 
     // styling for button when clicked      
     const switchCart = () => setInCart(!inCart)
@@ -47,7 +48,10 @@ function OneItem({item}) {
                   background: background,
                   
                 }}
-                onClick={switchCart}
+                onClick={() => {
+                    switchCart();
+                    addToCart(id);
+                }}
                 >
                   <Icon name={inCart ? 'thumbs up' : 'add to cart'} />{inCart ? "In Cart" : "Add to Cart"}
                   </Button>

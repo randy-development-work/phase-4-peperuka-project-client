@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from './Button';
 import './Navbar.css'
+import { ShoppingCart } from "phosphor-react";
 
 function Navbar() {
     const [click, setClick] = useState(false); //state for menu responsiveness
@@ -117,8 +118,12 @@ function Navbar() {
                     {btn && <button style={btnStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Sign Up</button>}
                 </Link>
                 
-                <Link to ="/login">
+                <Link to ="/login" style={{marginRight:"8px"}}>
                     {btn && <button style={btn2Style} onMouseEnter={handleEnter} onMouseLeave={handleLeave}>Log in</button>}
+                </Link>
+
+                <Link to="/cart">
+                    <ShoppingCart size={32} color="#fff"/>
                 </Link>
             </div>
         </nav>

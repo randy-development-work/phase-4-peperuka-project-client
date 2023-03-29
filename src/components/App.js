@@ -8,21 +8,26 @@ import About from './pages/About';
 import SignUp from './pages/SignUp';
 import LogIn from './pages/LogIn';
 import Footer from './Footer';
+import Cart from './pages/Cart'
+// import { ShopContextProvider } from '../context/shop-context';
 
 function App() {
   return (
     <>
-      <Navbar />
+      {/* <ShopContextProvider> */}
+        <Navbar />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="categories/:categoryID" element={<Items />}/>
-        <Route path="/about" element={<About />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<LogIn />} />
-        
-      </Routes>
-      <Footer />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="categories/:categoryID" element={<Items />}/>
+          <Route path="/about" element={<About />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/cart" element={<Cart />} />
+          
+        </Routes>
+        <Footer />
+      {/* </ShopContextProvider> */}
     </>
   );
 }
