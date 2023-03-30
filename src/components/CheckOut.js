@@ -1,7 +1,5 @@
-import React from 'react'
+import { Icon } from 'semantic-ui-react'
 
 export default function CheckOut() {
-  return (
-    <div>CheckOut</div>
-  )
+    return <h1 className='checkout'><Icon loading name='truck' size='massive' />DELIVERY INCOMING...</h1>;
 }

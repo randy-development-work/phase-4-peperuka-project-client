@@ -46,6 +46,7 @@
 
 .home,
 .about,
+.checkout,
 .log-in,
 .sign-up {
   display: flex;
@@ -80,5 +81,14 @@
   background-size: cover;
   background-repeat: no-repeat;
   color: #fff;
+  font-size: 100px;
+}
+
+.checkout {
+  background-image: url('../../public/images/checkout.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #dfd9d9;
   font-size: 100px;
 }

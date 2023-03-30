@@ -43,6 +43,19 @@ function Cart({ user }) {
         setCount(json.count);
       });
   };
+
+  const clearCart = () => {
+    fetch("/carts", {
+        method: "DELETE",
+    })
+    .then((resp) => resp.json())
+    .then((json) => {
+        setCartItems(json.cartItems);
+        setTotal(json.total);
+        setCount(json.count);
+    })
+  }
+
   if (cartItems.length > 0) {
     return (
       <Fragment>
@@ -78,6 +91,7 @@ function Cart({ user }) {
         <Button size='large' type='primary' style={{backgroundColor:'black', marginLeft: "600px", size:"500px"}}
           onClick={() => {
             navigator("/checkout");
+            clearCart();
           }}
         >
           {" "}
@@ -86,16 +100,18 @@ function Cart({ user }) {
       </Fragment>
     );
   } else {
+    return (
     <Fragment style={{ alignItems: "center" }}>
       <h2>Cart is Empty</h2>
       <Link to="/">
         <Tooltip title="home">
-          <Button icon={<HomeOutlined />} style={{ marginLeft: "570px" }}>
+          <Button icon={<HomeOutlined />} style={{ marginLeft: "570px", marginBottom: "30px" }}>
             Find an Item
           </Button>
         </Tooltip>
       </Link>
-    </Fragment>;
+    </Fragment>
+    )
   }
 }
 
