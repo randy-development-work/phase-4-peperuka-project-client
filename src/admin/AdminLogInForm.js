@@ -3,7 +3,7 @@ import { Button, Error, Input, FormField, Label } from "../components/styles";
 import { useNavigate } from "react-router-dom";
 
 function AdminLogInForm({setAdmin}) {
-    const [adminname, setAdminname] = useState("");
+    const [admin_name, setAdminname] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -18,7 +18,7 @@ function AdminLogInForm({setAdmin}) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ adminname, password }),
+        body: JSON.stringify({ admin_name, password }),
       }).then((r) => {
         setIsLoading(false);
         if (r.ok) {
@@ -38,7 +38,7 @@ function AdminLogInForm({setAdmin}) {
             type="text"
             id="adminname"
             autoComplete="off"
-            value={adminname}
+            value={admin_name}
             onChange={(e) => setAdminname(e.target.value)}
           />
         </FormField>

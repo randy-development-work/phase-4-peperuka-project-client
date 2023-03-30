@@ -13,8 +13,8 @@ position: fixed;
 z-index: -1;
 }
 
-.admin-in {
-/* background: url('https://images.pexels.com/photos/1109197/pexels-photo-1109197.jpeg?auto=compress&cs=tinysrgb&w=400') center center/cover no-repeat; */
+.admin {
+background: url('../../public/images/admin.jpg') center center/cover no-repeat;
 height: 100vh;
 width: 100%;
 display: flex;
@@ -25,13 +25,13 @@ box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
 object-fit: contain;
 }
 
-.admin-in > h1 {
+.admin > h1 {
 color: #fff;
 font-size: 100px;
 margin-top: -100px;
 }
 
-.admin-in > p {
+.admin > p {
 margin-top: 8px;
 color: #fff;
 font-size: 32px;
@@ -39,11 +39,11 @@ font-size: 32px;
     'Lucida Sans', Arial, sans-serif; */
 }
 
-/* .admin-in-btns {
+/* .admin-btns {
 margin-top: 32px;
 }
 
-.admin-in-btns .btn {
+.admin-btns .btn {
 margin: 6px;
 }
 
@@ -52,19 +52,19 @@ margin-left: 4px;
 } */
 
 @media screen and (max-width: 960px) {
-.admin-in > h1 {
+.admin > h1 {
     font-size: 70px;
     margin-top: -150px;
 }
 }
 
 @media screen and (max-width: 768px) {
-.admin-in > h1 {
+.admin > h1 {
     font-size: 50px;
     margin-top: -100px;
 }
 
-.admin-in > p {
+.admin > p {
     font-size: 30px;
 }
 
