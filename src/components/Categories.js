@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import './Categories.css';
 import EachCategory from './EachCategory';
 import { useCategories } from '../library';
+import { Card, Col, Row } from 'antd';
 
 function Categories() {
     const categories = useCategories();
@@ -18,7 +19,7 @@ function Categories() {
     return (
         <div className='cards'>
             <h2 style = {{fontFamily: "'Eczar', serif"}}>Pick a Category</h2>
-        <div className="ui three column grid container" style={{
+        {/* <div className="ui three column grid container" style={{
                             
             display: 'flex',
             justifyContent: 'space-between', 
@@ -28,7 +29,11 @@ function Categories() {
                 {onecategory}
             </div>
             
-        </div>
+        </div> */}
+
+        <Row gutter={12}>
+            {onecategory}
+        </Row>
         </div>
     )
 }
