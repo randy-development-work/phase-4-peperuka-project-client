@@ -48,7 +48,8 @@
 .about,
 .checkout,
 .log-in,
-.sign-up {
+.sign-up,
+.admin-in {
   display: flex;
   height: 90vh;
   align-items: center;

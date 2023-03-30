@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { ShoppingCart } from "phosphor-react";
 import { HeartFilled } from "@ant-design/icons";
+import { Icon } from 'semantic-ui-react'
 
 function Navbar({ user, setUser }) {
   const [click, setClick] = useState(false); //state for menu responsiveness
@@ -222,7 +223,7 @@ function Navbar({ user, setUser }) {
 
               <li className="nav-item">
                 <h2 style={{ color: "red", borderRadius: "5px" }}>
-                  Hi, {user.username} <HeartFilled />
+                <Icon name='user' size='massive'/> Hi, {user.username}
                 </h2>
               </li>
               <li className="nav-item">

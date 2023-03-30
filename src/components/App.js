@@ -11,9 +11,12 @@ import LogIn from './pages/LogIn';
 import Footer from './Footer';
 import Cart from './pages/Cart'
 import CheckOut from './CheckOut';
+import Admin from '../admin/Admin';
+import AdminLogIn from '../admin/AdminLogIn';
 
 function App() {
   const [user, setUser] = useState(null);
+  const [admin, setAdmin] = useState(null);
 
   // auto-login
   useEffect(() => {
@@ -24,9 +27,18 @@ function App() {
     });
   }, []);
 
+  // admin auto-login
+  useEffect(() => {
+    fetch("/god").then((r) => {
+      if (r.ok) {
+        r.json().then((admin) => setAdmin(admin));
+      }
+    });
+  }, []);
+
   return (
     <>
-        <Navbar user={user} setUser={setUser}/>
+        <Navbar user={user} setUser={setUser} admin={admin} setAdmin={setAdmin} />
 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -36,6 +48,9 @@ function App() {
           <Route path="/login" element={<LogIn setUser={setUser}/>} />
           <Route path="/cart" element={<Cart user={user}/>} />
           <Route path="/checkout" element={<CheckOut />} />
+
+          <Route path="/admin" element={<Admin admin={admin}/> } />
+          <Route path="/admin-login" element={<AdminLogIn admin={admin} setAdmin={setAdmin} /> } />
           
         </Routes>
         <Footer />
