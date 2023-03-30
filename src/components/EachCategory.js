@@ -55,7 +55,8 @@ function EachCategory({ category }) {
         <Card
           bordered={false}
           hoverable
-          // cover={<img alt={name} src={image} />}
+        //   cover={<img alt={name} src={image} />         
+        // }
 
           size="small"
           style={{
@@ -68,7 +69,7 @@ function EachCategory({ category }) {
             handleClick();
           }}            
             style={{
-              height: 240,
+              height: 140,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
