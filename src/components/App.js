@@ -10,7 +10,7 @@ import SignUp from './pages/SignUp';
 import LogIn from './pages/LogIn';
 import Footer from './Footer';
 import Cart from './pages/Cart'
-// import { ShopContextProvider } from '../context/shop-context';
+import CheckOut from './CheckOut';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -35,6 +35,7 @@ function App() {
           <Route path="/signup" element={<SignUp setUser={setUser}/>} />
           <Route path="/login" element={<LogIn setUser={setUser}/>} />
           <Route path="/cart" element={<Cart user={user}/>} />
+          <Route path="/checkout" element={<CheckOut />} />
           
         </Routes>
         <Footer />
