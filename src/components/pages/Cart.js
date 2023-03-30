@@ -67,8 +67,11 @@ function Cart({user}) {
                                 </List.Description>
                             </List.Content>
                         </List.Item> 
+                        <h3>Total: {total}</h3>
                     </List>
+                    
                 ))
+                
                 
             ) : (
                 <Fragment style={{alignItems: "center"}}>
@@ -83,7 +86,7 @@ function Cart({user}) {
             )}
 
 
-            <h3>Total: {total}</h3>
+            
         </Fragment>
     )
 }
