@@ -39,7 +39,7 @@ function Cart({user}) {
             console.log(json);
             setCartItems(json.cartItems)
             setTotal(json.total)
-            setItems(json.user_id = null)
+            // setItems(json.user_id = null)
         })
     }
 

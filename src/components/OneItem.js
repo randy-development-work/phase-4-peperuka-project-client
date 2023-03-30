@@ -1,9 +1,11 @@
 import React, { useContext, useState } from 'react'
 // import { ShopContext } from '../context/shop-context';
 import { Card, Icon, Image, Button } from 'semantic-ui-react';
+import { useNavigate } from 'react-router-dom';
 
 function OneItem({item, user}) {
-  const {u_id, username} = user;
+  let navigator = useNavigate();
+  
     const {id, name, image, vendor, vendor_contact, category_id, price, location, user_id} = item;
     // const [inCart, setInCart] = useState(false);
     // const { addToCart, cartItems } = useContext(ShopContext);
@@ -25,7 +27,7 @@ function OneItem({item, user}) {
           image,
           vendor,
           price,
-          user_id: u_id
+          user_id: user.id
         }),
       }).then((r) => {
         if (r.ok) {
@@ -72,9 +74,9 @@ function OneItem({item, user}) {
                   background: background,
                   
                 }}
-                onClick={() => {
+                onClick={() => { user ? 
                     // switchCart();
-                  addToCart();
+                  addToCart() : navigator("/login")
                 }}
                 >
                   <Icon name='add to cart' /> Add to Cart
