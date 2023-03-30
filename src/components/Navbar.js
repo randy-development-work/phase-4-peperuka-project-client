@@ -66,12 +66,7 @@ function Navbar({ user, setUser }) {
         setCartCount(data.count)
     })   
 
-},[])
-
-
-
-
-
+},[cartItems])
 
   const btnStyle = {
     backgroundColor: isHover ? "#FFF" : "transparent",
@@ -271,7 +266,7 @@ function Navbar({ user, setUser }) {
 
             <Link to="/cart" style={{ right: "1px" }}>
               <ShoppingCart size={32} color="#fff" />
-              {cartCount}
+              {cartCount > 0 ? cartCount : null}
             </Link>
           </div>
         </nav>

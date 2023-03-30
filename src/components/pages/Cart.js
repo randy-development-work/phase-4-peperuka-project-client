@@ -7,16 +7,17 @@ import { HomeOutlined } from '@ant-design/icons';
 function Cart({user}) {
     const [cartItems, setCartItems] = useState([]);
     const [total, setTotal] = useState(0); 
-    const [items, setItems] = useState([]);
+    // const [items, setItems] = useState([]);
+    const [count, setCount] = useState(0)
 
-    useEffect(() => {
-        fetch("/items")
-        .then((r)=> r.json())
-        .then((data) => {
-            setItems(data)
-        })   
+    // useEffect(() => {
+    //     fetch("/items")
+    //     .then((r)=> r.json())
+    //     .then((data) => {
+    //         setItems(data)
+    //     })   
 
-    },[])
+    // },[])
 
     useEffect(() => {
         fetch("/carts")
@@ -24,6 +25,7 @@ function Cart({user}) {
         .then((data) => {
             setCartItems(data.cartItems)
             setTotal(data.total)
+            setCount(data.count)
         })   
 
     },[])
@@ -39,14 +41,14 @@ function Cart({user}) {
             console.log(json);
             setCartItems(json.cartItems)
             setTotal(json.total)
-            // setItems(json.user_id = null)
+            setCount(json.count)
         })
     }
 
     return (
         <Fragment>
             <h2>Cart</h2>
-            {cartItems.length > 0 ? (
+            {cartItems.length > 0 ? ( 
                 cartItems.map((cartitem) => (
                     <List animated verticalAlign='middle'>
                         <List.Item>
@@ -67,26 +69,24 @@ function Cart({user}) {
                                 </List.Description>
                             </List.Content>
                         </List.Item> 
-                        <h3>Total: {total}</h3>
+                        
                     </List>
                     
-                ))
-                
+                ))               
                 
             ) : (
                 <Fragment style={{alignItems: "center"}}>
                     <h2>Cart is Empty</h2>
                     <Link to="/">
                     <Tooltip title="home">
-                        <Button icon={<HomeOutlined />}>Find an Item</Button>
+                        <Button icon={<HomeOutlined />} style={{marginLeft:"570px"}}>Find an Item</Button>
                         
                     </Tooltip>
                     </Link>
                 </Fragment>
             )}
 
-
-            
+           <h2 style={{alignItems:"center", marginLeft: "0px"}}>Total: {total}</h2>
         </Fragment>
     )
 }
