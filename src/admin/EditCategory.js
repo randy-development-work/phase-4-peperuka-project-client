@@ -6,7 +6,6 @@ function EditCategory() {
   const [categories, setCategories] = useState([]);
   // const { categoryId } = useParams();
   let params = useParams();
-  console.log(params);
 
   useEffect(() => {
     fetch("/categories")
@@ -27,7 +26,8 @@ function EditCategory() {
       .then((data) => setEditData(data));
   }, [params.categoryId]);
 
-  console.log("edit", editData);
+  console.log("edit", editData.id);
+  console.log(editData.name);
 
   const handleSubmit = (event) => {
     event.preventDefault();
