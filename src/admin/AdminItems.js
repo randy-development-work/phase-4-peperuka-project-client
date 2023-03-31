@@ -20,7 +20,7 @@ function AdminItems() {
 
   return (
     <div style={{ backgroundColor: "grey" }}>
-      <h2>Items</h2>
+      <h1 style={{marginLeft: "520px", color: "black"}}><b>Shopping Items</b></h1>
       <MDBRow
         className="row-cols-1 row-cols-md-4 g-5"
         style={{

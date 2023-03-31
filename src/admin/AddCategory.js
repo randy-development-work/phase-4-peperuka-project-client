@@ -42,7 +42,7 @@ function AddCategory() {
       <h3 style={{ textAlign: "center", marginTop: "70px" }}>Add New Category</h3>
       <div>
         <form
-          method="PATCH"
+          method="POST"
           className="edit-form"
           style={{
             width: "75%",
@@ -84,7 +84,7 @@ function AddCategory() {
           />
 
           <button type="submit" className="btn btn-primary">
-            SAVE YOUR CHANGES
+            ADD CATEGORY
           </button>
         </form>
       </div>

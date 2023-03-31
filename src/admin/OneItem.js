@@ -74,7 +74,6 @@ function OneItem({ item, onDestroyItem }) {
               </b>
             </MDBCardText>
             <MDBBtn
-              href="#"
               rounded
               style={{ marginRight: "60px" }}
               color="grey"
@@ -85,7 +84,6 @@ function OneItem({ item, onDestroyItem }) {
               Edit
             </MDBBtn>
             <MDBBtn
-              href="#"
               rounded
               color="dark"
               style={{ marginLeft: "35px" }}
