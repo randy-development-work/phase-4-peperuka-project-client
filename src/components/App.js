@@ -19,6 +19,7 @@ import AddCategory from "../admin/AddCategory";
 import AdminItems from "../admin/AdminItems";
 import AddItem from "../admin/AddItem";
 import CreateAdmin from "../admin/CreateAdmin";
+import EditItem from "../admin/EditItem";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -69,6 +70,10 @@ function App() {
         <Route path="/admin-items" element={<AdminItems/>} />
         <Route path="/admin-additem" element={<AddItem />} /> 
         <Route path="/create-admin" element={<CreateAdmin />} />
+        <Route
+          path="/admin-items/:itemID"
+          element={<EditItem />}
+        />
       </Routes>
       <Footer />
     </>

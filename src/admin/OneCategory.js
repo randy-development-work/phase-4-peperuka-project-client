@@ -1,12 +1,12 @@
 // import { Avatar, Button, List, Skeleton } from 'antd';
-import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Image, List, Button } from 'semantic-ui-react'
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Image, List, Button } from "semantic-ui-react";
 
-function OneCategory({category, onDelete}) {
-  const {id, image, name} = category;
+function OneCategory({ category, onDelete }) {
+  const { id, image, name } = category;
   // console.log(category);
-  let navigator = useNavigate('/admin')
+  let navigator = useNavigate("/admin");
 
   function deleteCategory() {
     fetch(`/categories/${id}`, {
@@ -19,33 +19,21 @@ function OneCategory({category, onDelete}) {
   }
 
   return (
-  //   <List
-  //   itemLayout="horizontal">
-
-   
-  //     <List.Item actions={[<Link to ={`/admin-categories/${id}`} key="list-loadmore-edit">edit</Link>]}>
-  //       <List.Item.Meta
-  //         avatar={<Avatar src={image}/>}
-  //         title={<Link>{name}</Link>}
-
-          
-          
-  //       />
-        
-  //     </List.Item>
-      
-  // </List>
-  <List horizontal divided size="large">
-    <List.Item>
-      <Image avatar src={image} />
-      <List.Content>
-        <List.Header>{name}</List.Header>
-        <Button primary onClick={() => navigator(`/admin-categories/${id}`)}>Edit</Button>
-      <Button secondary onClick={deleteCategory}>Delete</Button>
-      </List.Content>
-    </List.Item>
-  </List>
-  )
+    <List horizontal divided size="large">
+      <List.Item>
+        <Image avatar src={image} />
+        <List.Content>
+          <List.Header>{name}</List.Header>
+          <Button primary onClick={() => navigator(`/admin-categories/${id}`)}>
+            Edit
+          </Button>
+          <Button secondary onClick={deleteCategory}>
+            Delete
+          </Button>
+        </List.Content>
+      </List.Item>
+    </List>
+  );
 }
 
-export default OneCategory
+export default OneCategory;
