@@ -14,8 +14,8 @@ import {
 } from "mdb-react-ui-kit";
 import { useNavigate } from "react-router-dom";
 
-function OneItem({ item }) {
-    let navigator = useNavigate();
+function OneItem({ item, onDestroyItem }) {
+  let navigator = useNavigate();
   const {
     id,
     image,
@@ -27,6 +27,17 @@ function OneItem({ item }) {
     price,
     category,
   } = item;
+
+  function deleteItem() {
+    fetch(`/items/${id}`, {
+      method: "DELETE",
+    }).then((r) => {
+      if (r.ok) {
+        onDestroyItem(item);
+      }
+    });
+  }
+
   return (
     <div>
       <MDBCol>
@@ -78,6 +89,7 @@ function OneItem({ item }) {
               rounded
               color="dark"
               style={{ marginLeft: "35px" }}
+              onClick={deleteItem}
             >
               Delete
             </MDBBtn>
