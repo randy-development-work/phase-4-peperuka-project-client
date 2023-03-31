@@ -29,6 +29,7 @@ function AdminLogInForm({setAdmin}) {
         }
       });
     }
+    console.log(admin_name);
   
     return (
       <form onSubmit={handleSubmit}>

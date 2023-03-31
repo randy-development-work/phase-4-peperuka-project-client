@@ -13,6 +13,9 @@ import Cart from './pages/Cart'
 import CheckOut from './CheckOut';
 import Admin from '../admin/Admin';
 import AdminLogIn from '../admin/AdminLogIn';
+import AdminCategories from '../admin/AdminCategories';
+import EditCategory from '../admin/EditCategory';
+import AddCategory from '../admin/AddCategory';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -29,7 +32,7 @@ function App() {
 
   // admin auto-login
   useEffect(() => {
-    fetch("/god").then((r) => {
+    fetch("/ad").then((r) => {
       if (r.ok) {
         r.json().then((admin) => setAdmin(admin));
       }
@@ -51,6 +54,9 @@ function App() {
 
           <Route path="/admin" element={<Admin admin={admin}/> } />
           <Route path="/admin-login" element={<AdminLogIn admin={admin} setAdmin={setAdmin} /> } />
+          <Route path="/admin-categories" element={<AdminCategories /> } />
+          <Route path="/admin-categories/:categoryID" element={<EditCategory /> } />
+          <Route path="/admin-addcategory" element={<AddCategory /> } />
           
         </Routes>
         <Footer />

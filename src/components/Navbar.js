@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import { Button } from "./Button";
 import "./Navbar.css";
 import { ShoppingCart } from "phosphor-react";
@@ -7,6 +7,7 @@ import { HeartFilled } from "@ant-design/icons";
 import { Icon } from 'semantic-ui-react'
 
 function Navbar({ user, setUser, admin, setAdmin }) {
+  let navigator = useNavigate();
   const [click, setClick] = useState(false); //state for menu responsiveness
   const [btn, setBtn] = useState(true); //state for button styling
 
@@ -352,7 +353,7 @@ function Navbar({ user, setUser, admin, setAdmin }) {
         </nav>
       </Fragment>
     );
-  } else if(admin && !user) {
+  } else if(admin) {
     return (
       <Fragment>
         <nav className="navbar">
@@ -381,7 +382,9 @@ function Navbar({ user, setUser, admin, setAdmin }) {
               </li>
 
               <li className="nav-item">
-                <h2 style={{ color: "red", borderRadius: "5px", marginTop: "10px"  }}>
+                <h2 style={{ color: "red", borderRadius: "5px", marginTop: "10px", cursor:"pointer"}} onClick={() => {
+                  navigator("/admin")
+                }}>
                 <Icon name='user secret' size='massive'/> What's up, Admin
                 </h2>
               </li>
