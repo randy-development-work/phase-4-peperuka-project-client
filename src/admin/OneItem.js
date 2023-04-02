@@ -1,5 +1,6 @@
 import React from "react";
 // import { Button, Image, List } from "semantic-ui-react";
+import "./OneItem.css"
 import {
   MDBCard,
   MDBCardBody,
@@ -74,6 +75,7 @@ function OneItem({ item, onDestroyItem }) {
               </b>
             </MDBCardText>
             <MDBBtn
+              
               rounded
               style={{ marginRight: "60px" }}
               color="grey"
@@ -84,6 +86,7 @@ function OneItem({ item, onDestroyItem }) {
               Edit
             </MDBBtn>
             <MDBBtn
+              className="mdbtn"
               rounded
               color="dark"
               style={{ marginLeft: "35px" }}

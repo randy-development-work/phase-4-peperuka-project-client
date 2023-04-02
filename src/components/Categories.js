@@ -6,6 +6,15 @@ import { Card, Col, Row } from 'antd';
 
 function Categories() {
     const categories = useCategories();
+    // const [categories, setCategories] = useState([])
+
+    // useEffect(() => {
+    //     fetch("https://peperuka-server.onrender.com/categories")
+    //     .then((resp) => resp.json())
+    //     .then((json) => setCategories(json))
+    //     .catch((error) => console.log(error))
+    // })
+    // console.log(categories);
 
 
     let onecategory = categories.map((category) => {

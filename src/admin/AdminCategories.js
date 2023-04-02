@@ -11,7 +11,6 @@ function AdminCategories() {
       .then((json) => setCategories(json));
   }, []);
 
-  console.log("categories", categories);
 
   function onDelete(deleted) {
     const newCategories = categories.filter(

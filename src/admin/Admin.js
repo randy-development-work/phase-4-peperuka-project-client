@@ -55,8 +55,7 @@ function Admin() {
         >
           Add New Admin
         </Card.Grid>
-        <Card.Grid style={gridStyle}>Content</Card.Grid>
-        <Card.Grid style={gridStyle}>Content</Card.Grid>
+        
       </Card>
     </div>
   );

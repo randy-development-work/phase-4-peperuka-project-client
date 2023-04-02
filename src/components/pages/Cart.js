@@ -11,15 +11,6 @@ function Cart({ user }) {
   // const [items, setItems] = useState([]);
   const [count, setCount] = useState(0);
 
-  // useEffect(() => {
-  //     fetch("/items")
-  //     .then((r)=> r.json())
-  //     .then((data) => {
-  //         setItems(data)
-  //     })
-
-  // },[])
-
   useEffect(() => {
     fetch("/carts")
       .then((r) => r.json())
