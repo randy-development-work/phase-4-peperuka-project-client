@@ -26,4 +26,4 @@ There is an admin page for them to handle categories and items involvedin the we
 
 
 ## License
-[MIT]
+[MIT](https://github.com/randy-development-work/phase-4-peperuka-project-client/blob/main/LICENSE.md)
