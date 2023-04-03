@@ -22,7 +22,7 @@ function AddCategory() {
             name: newCategory.name
         }
 
-        fetch('/categories', {
+        fetch('https://peperuka-server.onrender.com/categories', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

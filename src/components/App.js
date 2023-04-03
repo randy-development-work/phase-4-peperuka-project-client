@@ -36,6 +36,7 @@ function App() {
       }
     });
   }, []);
+  console.log(user);
   console.log(localStorage);
   console.log(localStorage.getItem("user"));
   console.log(localStorage.admin);
