@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Link, useNavigate } from "react-router-dom";
 // import './Categories.css';
-import Tilt from "react-parallax-tilt";
+
 import {
   CCard,
   CCardHeader,
