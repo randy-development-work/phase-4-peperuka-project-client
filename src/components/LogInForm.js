@@ -22,7 +22,10 @@ function LogInForm({ setUser }) {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => {
+          localStorage.setItem("user", user)
+          setUser(user)
+        });
         navigator("/")
       } else {
         r.json().then((err) => setErrors(err.errors));

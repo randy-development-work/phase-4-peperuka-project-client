@@ -62,6 +62,7 @@ function Navbar({ user, setUser, admin, setAdmin }) {
   function handleLogOut() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
+        localStorage.removeItem(user);
         setUser(null);
       }
     });
@@ -71,6 +72,7 @@ function Navbar({ user, setUser, admin, setAdmin }) {
   function handleAdminLeave() {
     fetch("/adminout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
+        localStorage.removeItem(admin);
         setAdmin(null);
       }
     });

@@ -29,7 +29,10 @@ function App() {
   useEffect(() => {
     fetch("/me").then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => {
+          localStorage.setItem("user", user)
+          setUser(user)
+        });
       }
     });
   }, []);
@@ -38,7 +41,10 @@ function App() {
   useEffect(() => {
     fetch("/ad").then((r) => {
       if (r.ok) {
-        r.json().then((admin) => setAdmin(admin));
+        r.json().then((admin) => {
+          localStorage.setItem("admin", admin)
+          setAdmin(admin)
+        });
       }
     });
   }, []);

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Error, Input, FormField, Label } from "../components/styles";
 import { useNavigate } from "react-router-dom";
 
-function AdminLogInForm({setAdmin}) {
+function AdminLogInForm({admin, setAdmin}) {
     const [admin_name, setAdminname] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
@@ -22,7 +22,11 @@ function AdminLogInForm({setAdmin}) {
       }).then((r) => {
         setIsLoading(false);
         if (r.ok) {
-          r.json().then((admin) => setAdmin(admin));
+          r.json().then((admin) => {
+            localStorage.setItem("admin", admin)
+            console.log(localStorage);
+            setAdmin(admin)
+          });
           navigator("/admin")
         } else {
           r.json().then((err) => setErrors(err.errors));

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 export const resources = {
-  CATEGORIES: "https://peperuka-server.onrender.com/categories",
+  CATEGORIES: "/categories",
   ITEMS: "/items",
   CARTS: "/carts",
   USERS: "/me"
