@@ -14,7 +14,7 @@ function Categories() {
     //     .then((json) => setCategories(json))
     //     .catch((error) => console.log(error))
     // })
-    // console.log(categories);
+    console.log(categories);
 
 
     let onecategory = categories.map((category) => {
