@@ -32,7 +32,7 @@ function AddItem() {
       category_id: newItem.category_id,
     };
 
-    fetch("/items", {
+    fetch("https://peperuka-server.onrender.com/items", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

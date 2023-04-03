@@ -9,7 +9,7 @@ function OneCategory({ category, onDelete }) {
   let navigator = useNavigate("/admin");
 
   function deleteCategory() {
-    fetch(`/categories/${id}`, {
+    fetch(`https://peperuka-server.onrender.com/categories/${id}`, {
       method: "DELETE",
     }).then((r) => {
       if (r.ok) {

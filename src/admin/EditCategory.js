@@ -8,7 +8,7 @@ function EditCategory() {
   let params = useParams();
 
   useEffect(() => {
-    fetch("/categories")
+    fetch("https://peperuka-server.onrender.com/categories")
       .then((resp) => resp.json())
       .then((json) => setCategories(json))
       .catch((error) => console.log(error));
@@ -21,7 +21,7 @@ function EditCategory() {
 
   // fetch the category & pre-fill the form so that the user does not have to write from scratch
   useEffect(() => {
-    fetch(`/pata/${params.categoryID}`)
+    fetch(`https://peperuka-server.onrender.com/pata/${params.categoryID}`)
       .then((r) => r.json())
       .then((data) => setEditData(data));
   }, [params.categoryId]);
@@ -33,7 +33,7 @@ function EditCategory() {
     event.preventDefault();
 
     // set the request to the server
-    fetch(`/categories/${params.categoryID}`, {
+    fetch(`https://peperuka-server.onrender.com/categories/${params.categoryID}`, {
       method: "PATCH",
       body: JSON.stringify(editData),
       headers: {

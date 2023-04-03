@@ -13,7 +13,7 @@ function AdminLogInForm({admin, setAdmin}) {
     function handleSubmit(e) {
       e.preventDefault();
       setIsLoading(true);
-      fetch("/adminin", {
+      fetch("https://peperuka-server.onrender.com/adminin", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

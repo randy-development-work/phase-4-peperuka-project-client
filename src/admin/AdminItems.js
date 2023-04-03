@@ -6,7 +6,7 @@ function AdminItems() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch("/items")
+    fetch("https://peperuka-server.onrender.com/items")
       .then((r) => r.json())
       .then((json) => setItems(json));
   }, []);

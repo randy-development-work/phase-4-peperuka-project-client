@@ -6,7 +6,7 @@ function AdminCategories() {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch("/categories")
+    fetch("https://peperuka-server.onrender.com/categories")
       .then((resp) => resp.json())
       .then((json) => setCategories(json));
   }, []);

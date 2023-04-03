@@ -10,7 +10,7 @@ function EditItem() {
   const { itemID } = useParams();
 
   useEffect(() => {
-    fetch("/categories")
+    fetch("https://peperuka-server.onrender.com/categories")
       .then((resp) => resp.json())
       .then((json) => setCategories(json))
       .catch((error) => console.log(error));
@@ -35,7 +35,7 @@ function EditItem() {
 
   // fetch the items & pre-fill the form so that the user does not have to write from scratch
   useEffect(() => {
-    fetch(`/items/${itemID}`)
+    fetch(`https://peperuka-server.onrender.com/items/${itemID}`)
       .then((r) => r.json())
       .then((data) => setEditData(data));
   }, [itemID]);
@@ -53,7 +53,7 @@ function EditItem() {
     event.preventDefault();
 
     // set the request to the server
-    fetch(`/items/${itemID}`, {
+    fetch(`https://peperuka-server.onrender.com/items/${itemID}`, {
       method: "PATCH",
       body: JSON.stringify(editData),
       headers: {

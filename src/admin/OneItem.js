@@ -30,7 +30,7 @@ function OneItem({ item, onDestroyItem }) {
   } = item;
 
   function deleteItem() {
-    fetch(`/items/${id}`, {
+    fetch(`https://peperuka-server.onrender.com/items/${id}`, {
       method: "DELETE",
     }).then((r) => {
       if (r.ok) {

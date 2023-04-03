@@ -20,7 +20,7 @@ function CreateAdmin() {
     e.preventDefault();
     setErrors([]);
     setIsLoading(true);
-    fetch("/newadmin", {
+    fetch("https://peperuka-server.onrender.com/newadmin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
