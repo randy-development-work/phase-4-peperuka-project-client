@@ -13,7 +13,7 @@ function LogInForm({ setUser }) {
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
-    fetch("/login", {
+    fetch("https://peperuka-server.onrender.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

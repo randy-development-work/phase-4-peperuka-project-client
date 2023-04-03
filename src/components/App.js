@@ -27,7 +27,7 @@ function App() {
 
   // auto-login
   useEffect(() => {
-    fetch("/me").then((r) => {
+    fetch("https://peperuka-server.onrender.com/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => {
           localStorage.setItem("user", user)
@@ -39,7 +39,7 @@ function App() {
 
   // admin auto-login
   useEffect(() => {
-    fetch("/ad").then((r) => {
+    fetch("https://peperuka-server.onrender.com/ad").then((r) => {
       if (r.ok) {
         r.json().then((admin) => {
           localStorage.setItem("admin", admin)

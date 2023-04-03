@@ -14,7 +14,7 @@ function SignUpForm({setUser}) {
         e.preventDefault();
         setErrors([]);
         setIsLoading(true);
-        fetch("/signup", {
+        fetch("https://peperuka-server.onrender.com/signup", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

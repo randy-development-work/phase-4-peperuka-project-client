@@ -17,7 +17,7 @@ function OneItem({item, user}) {
 
     const [errors, setErrors] = useState([]);
     const addToCart = () => {
-      fetch('/carts', {
+      fetch('https://peperuka-server.onrender.com/carts', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
