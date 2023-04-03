@@ -5,7 +5,7 @@ The website allows a user to find items sold by vendors near them and add them t
 There is an admin page for them to handle categories and items involvedin the website.
 
 ## Accessing the Website
-https://phase-4-peperuka-project-client.vercel.app/
+
 
 ## Technologies
 ![Ruby](https://img.shields.io/badge/Ruby-CC342D?style=for-the-badge&logo=ruby&logoColor=white)
