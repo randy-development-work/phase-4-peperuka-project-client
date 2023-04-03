@@ -2,17 +2,6 @@ import React, { Fragment } from "react";
 import { Link, useNavigate } from "react-router-dom";
 // import './Categories.css';
 
-import {
-  CCard,
-  CCardHeader,
-  CCardTitle,
-  CCardBody,
-  CCardText,
-  CRow,
-  CCol,
-  CCardFooter,
-  CCardImage,
-} from "@coreui/react";
 // import { Card, Icon, Image, Button } from 'semantic-ui-react';
 import { Card, Col, Row } from "antd";
 
