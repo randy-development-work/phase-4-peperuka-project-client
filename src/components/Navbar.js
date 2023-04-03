@@ -62,7 +62,7 @@ function Navbar({ user, setUser, admin, setAdmin }) {
   function handleLogOut() {
     fetch("https://peperuka-server.onrender.com/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
-        localStorage.removeItem(user);
+        localStorage.clear();
         setUser(null);
       }
     });
@@ -72,7 +72,7 @@ function Navbar({ user, setUser, admin, setAdmin }) {
   function handleAdminLeave() {
     fetch("https://peperuka-server.onrender.com/adminout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
-        localStorage.removeItem(admin);
+        localStorage.clear();
         setAdmin(null);
       }
     });
