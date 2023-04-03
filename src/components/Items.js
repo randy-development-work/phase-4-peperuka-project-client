@@ -14,7 +14,7 @@ function Items({user}) {
 
     // fetch item data within categories
     useEffect(() => {
-        fetch(`/categories/${params.categoryID}`)
+        fetch(`https://peperuka-server.onrender.com/categories/${params.categoryID}`)
         .then((r) => r.json())
         .then((itemData) => setItems(itemData))
     }, [params.categoryID])
