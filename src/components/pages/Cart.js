@@ -12,7 +12,7 @@ function Cart({ user }) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    fetch("/carts")
+    fetch("https://peperuka-server.onrender.com/carts")
       .then((r) => r.json())
       .then((data) => {
         setCartItems(data.cartItems);
@@ -23,7 +23,7 @@ function Cart({ user }) {
 
   // function to remove the cart item
   const removeFromCart = (id) => {
-    fetch(`/carts/${id}`, {
+    fetch(`https://peperuka-server.onrender.com/carts/${id}`, {
       method: "DELETE",
     })
       .then((resp) => resp.json())
@@ -36,7 +36,7 @@ function Cart({ user }) {
   };
 
   const clearCart = () => {
-    fetch("/carts", {
+    fetch("https://peperuka-server.onrender.com/carts", {
         method: "DELETE",
     })
     .then((resp) => resp.json())

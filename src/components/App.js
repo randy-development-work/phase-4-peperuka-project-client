@@ -36,6 +36,9 @@ function App() {
       }
     });
   }, []);
+  console.log(localStorage);
+  console.log(localStorage.getItem("user"));
+  console.log(localStorage.admin);
 
   // admin auto-login
   useEffect(() => {
