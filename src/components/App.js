@@ -30,13 +30,13 @@ function App() {
     fetch("https://peperuka-server.onrender.com/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => {
-          localStorage.setItem("user", user)
           setUser(user)
         });
       }
     });
   }, []);
   console.log(user);
+  console.log("session", sessionStorage);
   console.log(localStorage);
   console.log(localStorage.getItem("user"));
   console.log(localStorage.admin);
@@ -46,7 +46,6 @@ function App() {
     fetch("https://peperuka-server.onrender.com/ad").then((r) => {
       if (r.ok) {
         r.json().then((admin) => {
-          localStorage.setItem("admin", admin)
           setAdmin(admin)
         });
       }

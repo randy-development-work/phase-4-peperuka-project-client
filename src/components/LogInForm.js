@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Error, Input, FormField, Label } from "./styles";
 import { useNavigate } from "react-router-dom";
 
@@ -9,6 +9,10 @@ function LogInForm({ setUser }) {
   const [isLoading, setIsLoading] = useState(false);
 
   let navigator = useNavigate();
+
+  useEffect(() => {
+    sessionStorage.clear();
+  },[])
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -23,8 +27,8 @@ function LogInForm({ setUser }) {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => {
-          localStorage.setItem("user", user)
           setUser(user)
+          sessionStorage.setItem('user', user)
         });
         navigator("/")
       } else {

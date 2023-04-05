@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import { ShoppingCart } from "phosphor-react";
 import { HeartFilled } from "@ant-design/icons";
-import { Icon } from 'semantic-ui-react'
+import { Icon } from "semantic-ui-react";
 
 function Navbar({ user, setUser, admin, setAdmin }) {
   let navigator = useNavigate();
@@ -60,9 +60,10 @@ function Navbar({ user, setUser, admin, setAdmin }) {
 
   //   logging user out
   function handleLogOut() {
-    fetch("https://peperuka-server.onrender.com/logout", { method: "DELETE" }).then((r) => {
+    fetch("https://peperuka-server.onrender.com/logout", {
+      method: "DELETE",
+    }).then((r) => {
       if (r.ok) {
-        localStorage.clear();
         setUser(null);
       }
     });
@@ -70,26 +71,26 @@ function Navbar({ user, setUser, admin, setAdmin }) {
 
   // admin logout
   function handleAdminLeave() {
-    fetch("https://peperuka-server.onrender.com/adminout", { method: "DELETE" }).then((r) => {
+    fetch("https://peperuka-server.onrender.com/adminout", {
+      method: "DELETE",
+    }).then((r) => {
       if (r.ok) {
-        localStorage.clear();
         setAdmin(null);
       }
     });
   }
 
   const [cartItems, setCartItems] = useState([]);
-  const [cartCount, setCartCount] = useState(0)
+  const [cartCount, setCartCount] = useState(0);
 
   useEffect(() => {
     fetch("https://peperuka-server.onrender.com/carts")
-    .then((r)=> r.json())
-    .then((data) => {
-        setCartItems(data.cartItems)
-        setCartCount(data.count)
-    })   
-
-},[cartItems])
+      .then((r) => r.json())
+      .then((data) => {
+        setCartItems(data.cartItems);
+        setCartCount(data.count);
+      });
+  }, [cartItems]);
 
   const btnStyle = {
     backgroundColor: isHover ? "#FFF" : "transparent",
@@ -134,7 +135,6 @@ function Navbar({ user, setUser, admin, setAdmin }) {
     fontSize: "18px",
     borderRadius: "5px",
   };
-
 
   if (!user && !admin) {
     return (
@@ -207,9 +207,9 @@ function Navbar({ user, setUser, admin, setAdmin }) {
             <Link to="/admin-login" style={{ marginRight: "3px" }}>
               {btn && (
                 <button
-                style={btn3Style}
-                onMouseEnter={handleIn}
-                onMouseLeave={handleOut}
+                  style={btn3Style}
+                  onMouseEnter={handleIn}
+                  onMouseLeave={handleOut}
                 >
                   Admin
                 </button>
@@ -251,7 +251,7 @@ function Navbar({ user, setUser, admin, setAdmin }) {
         </nav>
       </Fragment>
     );
-  } else if(user) {
+  } else if (user) {
     return (
       <Fragment>
         <nav className="navbar">
@@ -280,8 +280,14 @@ function Navbar({ user, setUser, admin, setAdmin }) {
               </li>
 
               <li className="nav-item">
-                <h2 style={{ color: "red", borderRadius: "5px", marginTop: "10px" }}>
-                <Icon name='user' size='massive'/> Hi, {user.username}
+                <h2
+                  style={{
+                    color: "red",
+                    borderRadius: "5px",
+                    marginTop: "10px",
+                  }}
+                >
+                  <Icon name="user" size="massive" /> Hi, {user.username}
                 </h2>
               </li>
               <li className="nav-item">
@@ -324,7 +330,6 @@ function Navbar({ user, setUser, admin, setAdmin }) {
                   style={btn3Style}
                   onMouseEnter={handleIn}
                   onMouseLeave={handleOut}
-                  
                 >
                   Admin
                 </button>
@@ -339,7 +344,7 @@ function Navbar({ user, setUser, admin, setAdmin }) {
                   onMouseLeave={handleLeave}
                   onClick={() => {
                     handleLogOut();
-                    alert("You're Logged Out")
+                    alert("You're Logged Out");
                   }}
                 >
                   Log Out
@@ -355,7 +360,7 @@ function Navbar({ user, setUser, admin, setAdmin }) {
         </nav>
       </Fragment>
     );
-  } else if(admin) {
+  } else if (admin) {
     return (
       <Fragment>
         <nav className="navbar">
@@ -384,10 +389,18 @@ function Navbar({ user, setUser, admin, setAdmin }) {
               </li>
 
               <li className="nav-item">
-                <h2 style={{ color: "red", borderRadius: "5px", marginTop: "10px", cursor:"pointer"}} onClick={() => {
-                  navigator("/admin")
-                }}>
-                <Icon name='user secret' size='massive'/> What's up, Admin
+                <h2
+                  style={{
+                    color: "red",
+                    borderRadius: "5px",
+                    marginTop: "10px",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => {
+                    navigator("/admin");
+                  }}
+                >
+                  <Icon name="user secret" size="massive" /> What's up, Admin
                 </h2>
               </li>
               <li className="nav-item">
@@ -407,24 +420,22 @@ function Navbar({ user, setUser, admin, setAdmin }) {
             <Link to="/admin-login" style={{ marginRight: "3px" }}>
               {btn && (
                 <button
-                style={btn3Style}
-                onMouseEnter={handleIn}
-                onMouseLeave={handleOut}
+                  style={btn3Style}
+                  onMouseEnter={handleIn}
+                  onMouseLeave={handleOut}
                   onClick={() => {
                     handleAdminLeave();
-                    alert("You're Logged Out")
+                    alert("You're Logged Out");
                   }}
                 >
                   Leave Session
                 </button>
               )}
             </Link>
-
           </div>
         </nav>
       </Fragment>
     );
-
   }
 }
 
